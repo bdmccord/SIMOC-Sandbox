@@ -47,3 +47,9 @@ class RandomActivationBySpecies(RandomActivation):
     def get_agent_count(self, type_class):
 
         return len(self.agents_by_type[type_class])
+
+    def get_random_agent(self, type_class):
+
+        agents = self.agents_by_type[type_class]
+        random.shuffle(agents)
+        self.remove(agents[random.randint(0,self.get_random_agent(type_class))])

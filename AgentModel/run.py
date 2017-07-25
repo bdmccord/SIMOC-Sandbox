@@ -2,11 +2,8 @@ from model import SingleRoomModel
 import matplotlib.pyplot as plt
 import numpy as np
 
-SingleRoom = SingleRoomModel(0,1)
+SingleRoom = SingleRoomModel(1,2)
 x1, x2, z, y, y1 = SingleRoom.run_model()
-
-
-print (y1)
 
 plt.subplot(2, 2, 1)
 plt.plot(range(z), x1, 'b')

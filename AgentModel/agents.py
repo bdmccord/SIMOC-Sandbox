@@ -7,15 +7,16 @@ class Human(Agent):
         self.name = name
 
     def step(self):
-        #print("Human {} active".format(self.name+1))
-
         if self.model.oxygen < 15.17 or self.model.carbon > 0.53:
             self.model.schedule.remove(self)
-        '''
+
         if self.model.oxygen < 16 or self.model.carbon > 0.4:
             plant = Plant(random.randint(1,50),self.model)
             self.model.schedule.add(plant)
-        '''
+
+        if self.model.oxygen < 0.04:
+            self.mode.schedule.remove(self.model.schedule.get_random_agent(Plant))
+
 
 class Plant(Agent):
 
@@ -25,8 +26,6 @@ class Plant(Agent):
         self.turnCount = turnCount
 
     def step(self):
-        #print("Plant {} active".format(self.name+1))
-
         self.turnCount-=1
 
         if self.turnCount <= 0:
