@@ -23,6 +23,10 @@ class SingleRoomModel(Model):
             {"Human": lambda m: m.schedule.get_agent_count(Human),
              "Plant": lambda m: m.schedule.get_agent_count(Plant)})
 
+        self.datacollector2 = DataCollector(
+            {"Oxygen": lambda m: m.oxygen,
+             "Carbon": lambda m: m.carbon})
+
         for i in range(self.p_agents):
             coords = (random.randrange(1, 20), random.randrange(1, 20))
             plant = Plant(coords,self,self.spread)
@@ -40,10 +44,11 @@ class SingleRoomModel(Model):
     def step(self):
         self.schedule.step()
         self.datacollector.collect(self)
+        self.datacollector2.collect(self)
 
         print ("Oxygen: {}".format(self.oxygen))
         print ("Carbon: {}".format(self.carbon))
-        
+
         self.h_agents = self.schedule.get_agent_count(Human)
         self.p_agents = self.schedule.get_agent_count(Plant)
 

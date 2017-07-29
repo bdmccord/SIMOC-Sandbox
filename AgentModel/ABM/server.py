@@ -30,8 +30,10 @@ def single_room(agent):
 canvas_element = CanvasGrid(single_room, 20, 20, 500, 500)
 chart_element = ChartModule([{"Label": "Human", "Color": "#AA0000"},
                              {"Label": "Plant", "Color": "#666666"}])
+chart_gas = ChartModule([{"Label": "Oxygen", "Color": "#AA0000"},
+                             {"Label": "Carbon", "Color": "#666666"}])
 
-server = ModularServer(SingleRoomModel, [canvas_element, chart_element],
+server = ModularServer(SingleRoomModel, [canvas_element, chart_element,chart_gas],
                        "Single Room Model",
                        model_params=dict(
                            h_agents=UserSettableParameter('slider', 'Initial Human Population', 1, 0, 100),
