@@ -1,3 +1,8 @@
+from ABM.server import server
+
+server.launch()
+
+'''
 from model import SingleRoomModel
 import matplotlib.pyplot as plt
 import numpy as np
@@ -34,3 +39,4 @@ plt.tight_layout()
 plt.subplots_adjust(top=0.85)
 plt.suptitle("Gas Partial Pressures",fontsize=14)
 plt.show()
+'''
