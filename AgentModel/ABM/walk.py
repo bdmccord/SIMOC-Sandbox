@@ -20,14 +20,14 @@ class Walker(Agent):
                 nearest = plant
         return nearest
 
-    def move(self, agent_type):
+    def move_toward_plant(self, agent_type):
         next_moves = self.model.grid.get_neighborhood(self.pos, moore=False, include_center=True)
         plant = self.nearest_neighbor(self.pos, agent_type)
         x, y = plant.pos
         x1, y1 = self.pos
         minDist = hypot(x1-x, y1-y)
 
-        if not(minDist<2):
+        if minDist>0:
             action = None
             for move in next_moves:
                 x1, y1 = move
@@ -36,7 +36,17 @@ class Walker(Agent):
                     action = move
             self.model.grid.move_agent(self, action)
 
-        elif (minDist==0):
-            neighbors = self.model.grid.get_neighborhood(self.pos,moore=False)
-            coords = self.model.schedule.empty_neighbor_finder(neighbors, agent_type)
-            self.model.grid.move_agent(self, coords)
+    def move_from_plant(self, agent_type):
+        next_moves = self.model.grid.get_neighborhood(self.pos, moore=False, include_center=True)
+
+        for move in next_moves:
+            if self.model.grid.is_cell_empty(move):
+                self.model.grid.move_agent(self, move)
+
+
+    def current_cell(self,pos, agent_type):
+        this_cell = self.model.grid.get_cell_list_contents([pos])
+        plant = [obj for obj in this_cell if isinstance(obj, agent_type)]
+        if not plant:
+            return None
+        return plant[0]
