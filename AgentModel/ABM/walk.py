@@ -27,7 +27,7 @@ class Walker(Agent):
         x1, y1 = self.pos
         minDist = hypot(x1-x, y1-y)
 
-        if not(minDist==0):
+        if not(minDist<2):
             action = None
             for move in next_moves:
                 x1, y1 = move
@@ -35,3 +35,8 @@ class Walker(Agent):
                 if (dist < minDist):
                     action = move
             self.model.grid.move_agent(self, action)
+
+        elif (minDist==0):
+            neighbors = self.model.grid.get_neighborhood(self.pos,moore=False)
+            coords = self.model.schedule.empty_neighbor_finder(neighbors, agent_type)
+            self.model.grid.move_agent(self, coords)

@@ -14,7 +14,7 @@ class SingleRoomModel(Model):
                   " Most parameters are set automatically, but to change any parameter "
                   "simply adjust the sliders and click reset.")
 
-    def __init__(self, h_agents=1, p_agents=5, plants_spread=20,oxygen=21.21, carbon=0.13):
+    def __init__(self, h_agents=1, p_agents=5, plants_spread=20,oxygen=21.21, carbon=0.13, regrowth=True):
         self.schedule = RandomActivationBySpecies(self)
         self.grid = MultiGrid(20, 20, torus=True)
         self.oxygen = oxygen
@@ -22,6 +22,7 @@ class SingleRoomModel(Model):
         self.h_agents = h_agents
         self.p_agents = p_agents
         self.spread = plants_spread
+        self.regrowth = regrowth
 
         for i in range(self.p_agents):
             coords = (random.randrange(0, 20), random.randrange(0, 20))

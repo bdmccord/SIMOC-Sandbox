@@ -52,3 +52,10 @@ class RandomActivationBySpecies(RandomActivation):
 
         agents = self.agents_by_type[type_class]
         return agents[random.randint(0,self.get_agent_count(type_class)-1)]
+
+    def empty_neighbor_finder(self, neighbors, type_class):
+        random.shuffle(neighbors)
+        for neighbor in neighbors:
+            this_cell = self.model.grid.get_cell_list_contents([neighbor])
+            if not(isinstance(this_cell, type_class)):
+                return neighbor

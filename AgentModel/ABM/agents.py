@@ -45,8 +45,9 @@ class Plant(Agent):
         if (self.model.carbon<0):
             self.model.carbon = 0
 
-        if self.turnCount <= 0:
-            coords = (random.randrange(1, 20), random.randrange(1, 20))
+        if self.turnCount <= 0 and self.model.regrowth:
+            neighbors = self.model.grid.get_neighborhood(self.pos,moore=False)
+            coords = self.model.schedule.empty_neighbor_finder(neighbors, Plant)
             plant = Plant(coords,self.model,self.model.spread)
             self.model.grid.place_agent(plant, coords)
             self.model.schedule.add(plant)
