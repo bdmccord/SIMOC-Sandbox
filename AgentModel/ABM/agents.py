@@ -7,6 +7,10 @@ class Human(Agent):
         self.pos = pos
 
     def step(self):
+
+        self.model.oxygen -= 0.0416*0.06265
+        self.model.carbon += 0.0416*0.05776
+
         if self.model.oxygen < 15.17 or self.model.carbon > 0.53:
             self.model.grid._remove_agent(self.pos, self)
             self.model.schedule.remove(self)
@@ -18,7 +22,7 @@ class Human(Agent):
 
         if self.model.carbon < 0.04:
             plant = self.model.schedule.get_random_agent(Plant)
-            self.model.grid._remove_agent(self.pos, plant)
+            self.model.grid._remove_agent(plant.pos, plant)
             self.model.schedule.remove(plant)
 
 
@@ -30,6 +34,12 @@ class Plant(Agent):
         self.turnCount = turnCount
 
     def step(self):
+
+        self.model.oxygen += 0.0416*0.00429
+        self.model.carbon -= 0.0416*0.00429
+
+        if (self.model.carbon<0):
+            self.model.carbon = 0
 
         if self.turnCount <= 0:
             coords = (random.randrange(1, 20), random.randrange(1, 20))

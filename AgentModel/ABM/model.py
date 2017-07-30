@@ -10,6 +10,10 @@ import random
 
 class SingleRoomModel(Model):
 
+    description = ("A model for simulating the exchange of carbon dioxide and oxygen between plants and humans."
+                  " Most parameters are set automatically, but to change any parameter "
+                  "simply adjust the sliders and click reset.")
+
     def __init__(self, h_agents=1, p_agents=5, plants_spread=20,oxygen=21.21, carbon=0.13):
         self.schedule = RandomActivationBySpecies(self)
         self.grid = MultiGrid(20, 20, torus=True)
@@ -19,6 +23,18 @@ class SingleRoomModel(Model):
         self.p_agents = p_agents
         self.spread = plants_spread
 
+        for i in range(self.p_agents):
+            coords = (random.randrange(0, 20), random.randrange(0, 20))
+            plant = Plant(coords,self,self.spread)
+            self.grid.place_agent(plant, coords)
+            self.schedule.add(plant)
+
+        for i in range(self.h_agents):
+            coords = (random.randrange(0, 20), random.randrange(0, 20))
+            human = Human(coords,self)
+            self.grid.place_agent(human, coords)
+            self.schedule.add(human)
+
         self.datacollector = DataCollector(
             {"Human": lambda m: m.schedule.get_agent_count(Human),
              "Plant": lambda m: m.schedule.get_agent_count(Plant)})
@@ -26,19 +42,6 @@ class SingleRoomModel(Model):
         self.datacollector2 = DataCollector(
             {"Oxygen": lambda m: m.oxygen,
              "Carbon": lambda m: m.carbon})
-
-        for i in range(self.p_agents):
-            coords = (random.randrange(1, 20), random.randrange(1, 20))
-            plant = Plant(coords,self,self.spread)
-            self.grid.place_agent(plant, coords)
-            self.schedule.add(plant)
-
-        for i in range(self.h_agents):
-            coords = (random.randrange(1, 20), random.randrange(1, 20))
-            human = Human(coords,self)
-            self.grid.place_agent(human, coords)
-            self.schedule.add(human)
-
         self.running = True
 
     def step(self):
@@ -52,13 +55,6 @@ class SingleRoomModel(Model):
         self.h_agents = self.schedule.get_agent_count(Human)
         self.p_agents = self.schedule.get_agent_count(Plant)
 
-        self.oxygen = self.oxygen - 0.0416*0.06265*self.h_agents + 0.0416*0.00429*self.p_agents
-        self.carbon = self.carbon + 0.0416*0.05776*self.h_agents - 0.0416*0.00429*self.p_agents
-
-        if (self.carbon<0):
-            self.carbon = 0
-
     def run_model(self, step_count=200):
-
         for i in range(step_count):
             self.step()
