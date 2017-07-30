@@ -1,12 +1,16 @@
 from mesa import Agent
+from ABM.walk import Walker
 import random
 
-class Human(Agent):
+class Human(Walker):
     def __init__(self, pos, model):
         super().__init__(pos, model)
         self.pos = pos
 
     def step(self):
+
+        if self.model.schedule.get_agent_count(Plant)>0:
+            self.move(Plant)
 
         self.model.oxygen -= 0.0416*0.06265
         self.model.carbon += 0.0416*0.05776
@@ -20,7 +24,7 @@ class Human(Agent):
             self.model.grid.place_agent(plant, self.pos)
             self.model.schedule.add(plant)
 
-        if self.model.carbon < 0.04:
+        if self.model.carbon < 0.04 and self.model.schedule.get_agent_count(Plant)>0:
             plant = self.model.schedule.get_random_agent(Plant)
             self.model.grid._remove_agent(plant.pos, plant)
             self.model.schedule.remove(plant)

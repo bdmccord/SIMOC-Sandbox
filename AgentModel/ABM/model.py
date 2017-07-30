@@ -49,8 +49,8 @@ class SingleRoomModel(Model):
         self.datacollector.collect(self)
         self.datacollector2.collect(self)
 
-        print ("Oxygen: {}".format(self.oxygen))
-        print ("Carbon: {}".format(self.carbon))
+        #print ("Oxygen: {}".format(self.oxygen))
+        #print ("Carbon: {}".format(self.carbon))
 
         self.h_agents = self.schedule.get_agent_count(Human)
         self.p_agents = self.schedule.get_agent_count(Plant)

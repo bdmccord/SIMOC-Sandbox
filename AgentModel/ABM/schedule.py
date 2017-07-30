@@ -51,4 +51,4 @@ class RandomActivationBySpecies(RandomActivation):
     def get_random_agent(self, type_class):
 
         agents = self.agents_by_type[type_class]
-        return agents[random.randint(0,self.get_agent_count(type_class))]
+        return agents[random.randint(0,self.get_agent_count(type_class)-1)]
