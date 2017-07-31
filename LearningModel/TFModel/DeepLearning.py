@@ -5,14 +5,11 @@ import pandas as pd
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
 
-trainData = np.genfromtxt('trainData.csv', delimiter=',')
-testData = np.genfromtxt('testData.csv', delimiter=',')
+trainData = np.loadtxt('../trainData.csv', delimiter=',')
+testData = np.loadtxt('../testData.csv', delimiter=',')
 
 
-train_x = trainData[0:,0:23]
-train_y = trainData[0:,[24,25]]
-test_x = testData[0:,0:23]
-test_y = testData[0:,[24,25]]
+
 
 nodes_hl1 = 4
 nodes_hl2 = 4
