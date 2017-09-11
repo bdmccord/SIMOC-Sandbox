@@ -1,6 +1,8 @@
 import tensorflow as tf
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+import os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
@@ -9,12 +11,15 @@ trainData = np.loadtxt('../trainData.csv', delimiter=',')
 testData = np.loadtxt('../testData.csv', delimiter=',')
 
 
-
+train_x = trainData[0:,0:23]
+train_y = trainData[0:,[24,25]]
+test_x = testData[0:,0:23]
+test_y = testData[0:,[24,25]]
 
 nodes_hl1 = 4
 nodes_hl2 = 4
 n_classes = 2
-batch_size = 100
+batch_size = 50
 
 
 
@@ -51,11 +56,11 @@ def train_NN(x):
     cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=prediction,labels=y))
 
     # Optimizer
-    optimize = tf.train.AdamOptimizer().minimize(cost)
+    optimize = tf.train.FtrlOptimizer(learning_rate=0.001).minimize(cost)
 
     # Number of Back Prop Cycles
-    cycles = 10
-
+    cycles = 75
+    loss = []
     with tf.Session() as sess:
 
         sess.run(tf.global_variables_initializer())
@@ -72,9 +77,16 @@ def train_NN(x):
                 i += batch_size
 
             print ("Epoch", cycle+1, "completed out of" , cycles)
+            loss.append(cycle_loss)
 
         correct = tf.equal(tf.argmax(prediction,1),tf.argmax(y,1))
         accuracy = tf.reduce_mean(tf.cast(correct,'float'))
         print ('Accuracy', accuracy.eval({x:test_x, y:test_y}))
+        plt.plot(range(1,cycles+1), loss)
+        plt.ylabel('Learning Loss')
+        plt.xlabel('Cycles')
+        plt.suptitle('Learning Loss per Cycle')
+        plt.show()
+
 
 train_NN(x)

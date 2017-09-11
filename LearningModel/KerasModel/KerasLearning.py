@@ -19,7 +19,7 @@ model.add(Dense(2, activation='sigmoid'))
 model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
 
 # Fit the model
-model.fit(train_x, train_y, epochs=200, batch_size=10)
+model.fit(train_x, train_y, epochs=50, batch_size=40)
 
 # evaluate the model
 scores = model.evaluate(train_x, train_y)
