@@ -7,6 +7,7 @@ from ABM.agents import Human, Plant
 
 import numpy as np
 import random
+import json
 
 class SingleRoomModel(Model):
 
@@ -26,6 +27,15 @@ class SingleRoomModel(Model):
         self.excess_amount = excess_amount
         self.excess_co2 = excess_co2
 
+        with open('/Users/tyler/Desktop/SIMOC/SIMOC_Models/data/data.json', 'r') as f:
+            data = json.load(f)
+
+        plant_type = 'White Potato'
+        oxy = data['Plants'][plant_type]['Oxygen']
+        co2 = data['Plants'][plant_type]['Carbon']
+        edible = data['Plants'][plant_type]['Edible']
+        inedible = data['Plants'][plant_type]['Inedible']
+
         for i in range(self.p_agents):
             coords = (random.randrange(0, 20), random.randrange(0, 20))
             plant = Plant(coords,self,self.spread)
@@ -34,7 +44,7 @@ class SingleRoomModel(Model):
 
         for i in range(self.h_agents):
             coords = (random.randrange(0, 20), random.randrange(0, 20))
-            human = Human(coords,self)
+            human = Human(coords,edible,inedible,self)
             self.grid.place_agent(human, coords)
             self.schedule.add(human)
 
