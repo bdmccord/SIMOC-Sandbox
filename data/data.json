@@ -39,6 +39,76 @@
       "Oxygen" : 12,
       "Carbon": 16.50,
       "Water": 1.74
+    },
+    "Peanut" : {
+      "Oxygen" : 35.84,
+      "Carbon": 49.28,
+      "Water": 2.77
+    },
+    "Pea" : {
+      "Oxygen" : 24.71,
+      "Carbon": 33.98,
+      "Water": 2.77
+    },
+    "Pepper" : {
+      "Oxygen" : 24.71,
+      "Carbon": 33.98,
+      "Water": 1.77
+    },
+    "Radish" : {
+      "Oxygen" : 11.86,
+      "Carbon": 16.31,
+      "Water": 1.77
+    },
+    "Red Beet" : {
+      "Oxygen" : 7.11,
+      "Carbon": 9.77,
+      "Water": 1.77
+    },
+    "Rice" : {
+      "Oxygen" : 36.55,
+      "Carbon": 50.26,
+      "Water": 3.43
+    },
+    "Snap Bean" : {
+      "Oxygen" : 36.43,
+      "Carbon": 50.09,
+      "Water": 2.46
+    },
+    "Soybean" : {
+      "Oxygen" : 13.91,
+      "Carbon": 19.13,
+      "Water": 2.88
+    },
+    "Spinach" : {
+      "Oxygen" : 7.78,
+      "Carbon": 10.70,
+      "Water": 1.77
+    },
+    "Strawberry" : {
+      "Oxygen" : 25.32,
+      "Carbon": 34.82,
+      "Water": 2.22
+    },
+    "Sweet Potato" : {
+      "Oxygen" : 41.12,
+      "Carbon": 56.54,
+      "Water": 2.88
+    },
+    "Tomato" : {
+      "Oxygen" : 26.36,
+      "Carbon": 36.24,
+      "Water": 2.77
+    },
+    "Wheat" : {
+      "Oxygen" : 56,
+      "Carbon": 77,
+      "Water": 11.79
+    },
+    "White Potato" : {
+      "Oxygen" : 32.23,
+      "Carbon": 45.23,
+      "Water": 2.88
     }
   }
 }
