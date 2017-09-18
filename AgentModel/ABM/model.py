@@ -14,7 +14,7 @@ class SingleRoomModel(Model):
                   " Most parameters are set automatically, but to change any parameter "
                   "simply adjust the sliders and click reset.")
 
-    def __init__(self, h_agents=1, p_agents=5, plants_spread=20,oxygen=21.21, carbon=0.13, regrowth=True):
+    def __init__(self, regrowth,excess_co2,excess_amount,h_agents=1, p_agents=5, plants_spread=20,oxygen=21.21, carbon=0.13):
         self.schedule = RandomActivationBySpecies(self)
         self.grid = MultiGrid(20, 20, torus=True)
         self.oxygen = oxygen
@@ -23,6 +23,8 @@ class SingleRoomModel(Model):
         self.p_agents = p_agents
         self.spread = plants_spread
         self.regrowth = regrowth
+        self.excess_amount = excess_amount
+        self.excess_co2 = excess_co2
 
         for i in range(self.p_agents):
             coords = (random.randrange(0, 20), random.randrange(0, 20))
@@ -41,12 +43,14 @@ class SingleRoomModel(Model):
              "Plant": lambda m: m.schedule.get_agent_count(Plant)})
 
         self.datacollector2 = DataCollector(
-            {"Oxygen": lambda m: m.oxygen,
-             "Carbon": lambda m: m.carbon})
+            {"Carbon": lambda m: m.carbon}
+        )
         self.running = True
 
     def step(self):
         self.schedule.step()
+        if self.excess_co2:
+            self.carbon += 0.00001*(self.excess_amount)
         self.datacollector.collect(self)
         self.datacollector2.collect(self)
 
@@ -57,5 +61,9 @@ class SingleRoomModel(Model):
         self.p_agents = self.schedule.get_agent_count(Plant)
 
     def run_model(self, step_count=200):
+        co2 = []
+        oxy = []
         for i in range(step_count):
             self.step()
+            co2.append(self.carbon)
+            oxy.append(self.oxygen)

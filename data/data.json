@@ -1,0 +1,44 @@
+{
+  "Plants": {
+    "Cabbage" : {
+      "Oxygen" : 7.19,
+      "Carbon": 9.88,
+      "Water": 1.77
+    },
+    "Carrot" : {
+      "Oxygen" : 16.36,
+      "Carbon": 22.50,
+      "Water": 1.77
+    },
+    "Chard" : {
+      "Oxygen" : 11.49,
+      "Carbon": 15.79,
+      "Water": 1.77
+    },
+    "Celery" : {
+      "Oxygen" : 12.24,
+      "Carbon": 16.83,
+      "Water": 1.24
+    },
+    "Dry Bean" : {
+      "Oxygen" : 30.67,
+      "Carbon": 42.17,
+      "Water": 2.53
+    },
+    "Green Onion" : {
+      "Oxygen" : 10.67,
+      "Carbon": 14.67,
+      "Water": 1.74
+    },
+    "Lettuce" : {
+      "Oxygen" : 7.78,
+      "Carbon": 10.70,
+      "Water": 1.77
+    },
+    "Pea" : {
+      "Oxygen" : 12,
+      "Carbon": 16.50,
+      "Water": 1.74
+    }
+  }
+}

@@ -6,32 +6,40 @@ class Human(Walker):
     def __init__(self, pos, model):
         super().__init__(pos, model)
         self.pos = pos
+        self.energy = 15
 
     def step(self):
 
-        if self.model.schedule.get_agent_count(Plant)>0 and self.model.carbon < 0.1:
+        plant = self.current_cell(self.pos,Plant)
+
+        if self.model.schedule.get_agent_count(Plant)>0 and (self.model.carbon < 0.1):
             self.move_toward_plant(Plant)
+            self.energy -= 11.82/(24)
 
-        if self.model.schedule.get_agent_count(Plant)>0 and self.model.carbon > 0.3:
+        if self.model.schedule.get_agent_count(Plant)>0 and self.model.carbon > 0.4:
             self.move_from_plant(self)
+            self.energy -= 11.82/(24)
 
-        self.model.oxygen -= 0.0416*0.06265
-        self.model.carbon += 0.0416*0.05776
-
-        if self.model.oxygen < 15.17 or self.model.carbon > 0.53:
+        if self.model.oxygen < 15.17 or self.model.carbon > 0.53 or self.energy < 0:
             self.model.grid._remove_agent(self.pos, self)
             self.model.schedule.remove(self)
 
-        if self.model.oxygen < 16 or self.model.carbon > 0.4:
-            plant = Plant(self.pos,self.model,self.model.spread)
-            self.model.grid.place_agent(plant, self.pos)
-            self.model.schedule.add(plant)
+        if (self.model.oxygen < 16 or self.model.carbon > 0.4 or self.energy < 10):
+            if not(isinstance(plant,Plant)):
+                plant = Plant(self.pos,self.model,self.model.spread)
+                self.model.grid.place_agent(plant, self.pos)
+                self.model.schedule.add(plant)
+            else:
+                self.move_from_plant(self)
 
-        plant = self.current_cell(self.pos,Plant)
+        self.model.oxygen -= 0.0416*0.06265
+        self.model.carbon += 0.0416*0.05776
+        self.energy -= 7.43/(24)
 
-        if self.model.carbon < 0.04 and isinstance(plant, Plant):
+        if (self.model.carbon < 0.04 or self.energy < 6) and isinstance(plant, Plant):
             self.model.grid._remove_agent(plant.pos, plant)
             self.model.schedule.remove(plant)
+            self.energy += 0.81
 
 
 class Plant(Agent):
