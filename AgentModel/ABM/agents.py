@@ -26,16 +26,19 @@ class Human(Walker):
             self.model.grid._remove_agent(self.pos, self)
             self.model.schedule.remove(self)
 
-        if (self.model.oxygen < 16 or self.model.carbon > 0.3 or self.energy < 12):
-            plant = Plant(self.pos,self.model,self.model.spread)
-            self.model.grid.place_agent(plant, self.pos)
-            self.model.schedule.add(plant)
+        if (self.model.oxygen < 16 or self.model.carbon > 0.35 or self.energy < 10):
+            if not(isinstance(plant,Plant)):
+                plant = Plant(self.pos,self.model,self.model.spread)
+                self.model.grid.place_agent(plant, self.pos)
+                self.model.schedule.add(plant)
+            else:
+                self.move_from_plant(self)
 
         self.model.oxygen -= 0.0416*0.06265
         self.model.carbon += 0.0416*0.05776
         self.energy -= 7.43/(24)
 
-        if (self.model.carbon < 0.04 or self.energy < 7) and isinstance(plant, Plant):
+        if (self.model.carbon < 0.04 or self.energy < 5) and isinstance(plant, Plant):
             print ('Remove')
             self.model.grid._remove_agent(plant.pos, plant)
             self.model.schedule.remove(plant)
