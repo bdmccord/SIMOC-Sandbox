@@ -6,7 +6,7 @@ class Human(Walker):
     def __init__(self, pos, ed, ined,model):
         super().__init__(pos, model)
         self.pos = pos
-        self.energy = 15
+        self.energy = 50
         self.ed = ed
         self.ined = ined
 
@@ -26,7 +26,7 @@ class Human(Walker):
             self.model.grid._remove_agent(self.pos, self)
             self.model.schedule.remove(self)
 
-        if (self.model.oxygen < 16 or self.model.carbon > 0.35 or self.energy < 10):
+        if (self.model.oxygen < 16 or self.model.carbon > 0.35 or self.energy < 25):
             if not(isinstance(plant,Plant)):
                 plant = Plant(self.pos,self.model,self.model.spread)
                 self.model.grid.place_agent(plant, self.pos)
@@ -34,27 +34,32 @@ class Human(Walker):
             else:
                 self.move_from_plant(self)
 
-        self.model.oxygen -= 0.0416*0.06265
-        self.model.carbon += 0.0416*0.05776
-        self.energy -= 7.43/(24)
-
         if (self.model.carbon < 0.04 or self.energy < 5) and isinstance(plant, Plant):
-            print ('Remove')
             self.model.grid._remove_agent(plant.pos, plant)
             self.model.schedule.remove(plant)
             self.energy += 0.00456*self.ed              # Edible dry mass times MJ/gram
             self.model.carbon += 0.0000969*self.ined    # Amount of carbon released from inedible dry mass
             self.model.oxygen += 0.0000972*self.ined    # Amount of oxygen released from inedible dry mass
 
+        else:
+            self.energy -= 7.43/(24)
 
+        self.model.oxygen -= 0.0416*0.06265
+        self.model.carbon += 0.0416*0.05776
+        
 class Plant(Agent):
 
-    def __init__(self, pos, model, turnCount=20):
+    def __init__(self, pos, model, turnCount=20, mature=10,grown=False):
         super().__init__(pos, model)
         self.pos = pos
         self.turnCount = turnCount
-
+        self.grown = grown
+        self.mature = mature
     def step(self):
+        if (self.mature>0):
+            self.mature-=1
+        else:
+            self.grown = True
 
         self.model.oxygen += 0.0416*0.00005
         self.model.carbon -= 0.0416*0.00429
@@ -70,7 +75,6 @@ class Plant(Agent):
             self.model.schedule.add(plant)
             self.turnCount = self.model.spread
 
-        self.turnCount-=1
 
         if self.model.carbon < 0.015:
             self.model.grid._remove_agent(self.pos, self)

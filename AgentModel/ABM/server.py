@@ -18,7 +18,10 @@ def single_room(agent):
         portrayal["Layer"] = 1
 
     elif type(agent) is Plant:
-        portrayal["Color"] = "#00AA00"
+        if (agent.grown):
+            portrayal["Color"] = "#00AA00"
+        else:
+            portrayal["Color"] = "#aa740f"
         portrayal["Shape"] = "rect"
         portrayal["Filled"] = "true"
         portrayal["Layer"] = 0
