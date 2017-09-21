@@ -27,7 +27,7 @@ class SingleRoomModel(Model):
         self.excess_amount = excess_amount
         self.excess_co2 = excess_co2
 
-        with open('/Users/tyler/Desktop/SIMOC/SIMOC_Models/data/data.json', 'r') as f:
+        with open('../data/data.json', 'r') as f:
             data = json.load(f)
 
         plant_type = 'White Potato'
