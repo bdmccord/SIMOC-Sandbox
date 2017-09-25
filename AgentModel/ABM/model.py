@@ -11,11 +11,17 @@ import json
 
 class SingleRoomModel(Model):
 
+
+    '''
+    CDRA (carbon dioxide removal assembly) uses ~2.1 kW per kg of CO2 removed
+
+    ~ 6 kg of co2 removed
+    '''
     description = ("A model for simulating the exchange of carbon dioxide and oxygen between plants and humans."
                   " Most parameters are set automatically, but to change any parameter "
                   "simply adjust the sliders and click reset.")
 
-    def __init__(self, regrowth,excess_co2,excess_amount,h_agents=1, p_agents=5, plants_spread=20,oxygen=21.21, carbon=0.13):
+    def __init__(self, scrubber,regrowth,excess_co2,excess_amount,solar,h_agents=1, p_agents=5, plants_spread=20,oxygen=21.21, carbon=0.13):
         self.schedule = RandomActivationBySpecies(self)
         self.grid = MultiGrid(20, 20, torus=True)
         self.oxygen = oxygen
@@ -26,19 +32,22 @@ class SingleRoomModel(Model):
         self.regrowth = regrowth
         self.excess_amount = excess_amount
         self.excess_co2 = excess_co2
+        self.temp = 295
+        self.solar = solar
+        self.scrubber = scrubber
 
         with open('../data/data.json', 'r') as f:
             data = json.load(f)
 
         plant_type = 'White Potato'
-        oxy = data['Plants'][plant_type]['Oxygen']
-        co2 = data['Plants'][plant_type]['Carbon']
+        self.oxy = data['Plants'][plant_type]['Oxygen']
+        self.co2 = data['Plants'][plant_type]['Carbon']
         edible = data['Plants'][plant_type]['Edible']
         inedible = data['Plants'][plant_type]['Inedible']
 
         for i in range(self.p_agents):
             coords = (random.randrange(0, 20), random.randrange(0, 20))
-            plant = Plant(coords,self,self.spread)
+            plant = Plant(coords,self.oxy,self.co2,self,self.spread)
             self.grid.place_agent(plant, coords)
             self.schedule.add(plant)
 
@@ -60,7 +69,11 @@ class SingleRoomModel(Model):
     def step(self):
         self.schedule.step()
         if self.excess_co2:
-            self.carbon += 0.00001*(self.excess_amount)
+            self.carbon += 0.001*(self.excess_amount)
+        if self.scrubber:
+            self.carbon -= 0.459*0.41666*(self.solar/400)
+        if self.carbon < 0:
+            self.carbon = 0
         self.datacollector.collect(self)
         self.datacollector2.collect(self)
 
