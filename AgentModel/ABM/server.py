@@ -44,7 +44,7 @@ server = ModularServer(SingleRoomModel, [canvas_element, chart_element, chart_ga
                        "Single Room Model",
                        model_params=dict(
                            scrubber=UserSettableParameter('checkbox', 'CO2 Scrubber Enabled', False),
-                           solar=UserSettableParameter('slider','Solar Energy Generated per Hour (W)',1,0,40), # Values based on 10 m^2 array
+                           solar=UserSettableParameter('slider','Solar Energy Generated per Hour (W)',0,0,400), # Values based on 10 m^2 array
                            excess_co2=UserSettableParameter('checkbox', 'Excess Carbon Enabled', False),
                            excess_amount=UserSettableParameter('slider', "Excess Carbon per Step", 1,1,100, description="Percentage of excess carbon dioxide to be added"),
                            h_agents=UserSettableParameter('slider', 'Initial Human Population', 1, 0, 10),

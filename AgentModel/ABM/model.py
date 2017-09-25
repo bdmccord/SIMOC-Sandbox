@@ -70,8 +70,8 @@ class SingleRoomModel(Model):
         self.schedule.step()
         if self.excess_co2:
             self.carbon += 0.001*(self.excess_amount)
-        if self.scrubber:
-            self.carbon -= 0.459*0.41666*(self.solar/400)
+        if self.scrubber and self.carbon > 0.1:
+            self.carbon -= 0.415*0.041666*(self.solar/400)
         if self.carbon < 0:
             self.carbon = 0
         self.datacollector.collect(self)

@@ -26,19 +26,19 @@ class Human(Walker):
 
 
         if self.model.oxygen < 15.17 or self.model.carbon > 0.53 or self.energy < 0:
-            print ("c")
+
             self.model.grid._remove_agent(self.pos, self)
             self.model.schedule.remove(self)
 
         if self.model.schedule.get_agent_count(Plant)>0 and (self.energy < 75) and not(isinstance(cell,Plant)):
             self.move_toward_plant(Plant)
-            print ("a")
+
             self.energy -= 11.82*(1/24)
             self.model.oxygen -= 0.0416*0.06265*2.1
             self.model.carbon += 0.0416*0.05776*2
 
         elif (self.model.oxygen < 16 or self.model.carbon > 0.3 or (self.energy < 90 and self.energy > 80) or len(self.model.schedule.agents_by_type[Plant])<10):
-            print ("d")
+
             if not(isinstance(cell,Plant)):
                 plant = Plant(self.pos,self.model.oxy,self.model.co2,self.model,self.model.spread)
                 self.model.grid.place_agent(plant, self.pos)
@@ -52,7 +52,7 @@ class Human(Walker):
 
         elif (self.model.carbon < 0.04 or self.energy < 75) and isinstance(cell, Plant):
             if (cell.grown):
-                print ("e")
+
                 self.model.grid._remove_agent(cell.pos, cell)
                 self.model.schedule.remove(cell)
                 self.move_toward_plant(Plant)
@@ -64,10 +64,11 @@ class Human(Walker):
                 self.model.oxygen += 0.0000972*self.ined    # Amount of oxygen released from inedible dry mass
 
         else:
-            print ("f")
             self.energy -= 7.43*(1/24)
             self.model.oxygen -= 0.0416*0.06265*0.63
             self.model.carbon += 0.0416*0.05776*0.63
+
+        print (self.energy)
 
 
 class Plant(Agent):
