@@ -30,7 +30,7 @@ def single_room(agent):
 
     return portrayal
 
-canvas_element = CanvasGrid(single_room, 20, 20, 400, 400)
+canvas_element = CanvasGrid(single_room, 20, 20, 500, 500)
 
 
 chart_element = ChartModule([{"Label": "Human", "Color": "#AA0000"},
