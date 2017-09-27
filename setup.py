@@ -1,12 +1,14 @@
 import os, sys,shutil
 
+if sys.version_info[0] != 3:
+    print("This update requires Python version 3\nRun again with python3")
+    sys.exit(1)
+
 def main():
     try:
         import mesa
     except ImportError:
         print ("Mesa has not been installed on your computer. To install run:\npip install mesa")
-
-
 
     path = os.path.join(mesa.__file__[:-12],"visualization","templates")
     paths = [os.path.join(path,'css'),
