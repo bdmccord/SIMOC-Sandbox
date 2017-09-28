@@ -6,14 +6,21 @@ the model creates a systematic way of allocating and consuming resources such as
 
 # Getting Started
 
+To get started modeling with SIMOC, download this repository onto your personal computer.
+There are multiple attempts at modeling an Off-world Colony thus far.
+
 The agent-based model used for the bulk of the SIMOC simulating requires a modified version of
 an agent-based modeling package called Mesa. To download this package, run the command below in
 your terminal.
 
-> pip3 install mesa
+```
+pip3 install mesa
+```
 
 Once this package is install, move into the SIMOC_Models directory and run the command the below.
 
-> python3 setup.py
+```
+python3 setup.py
+```
 
 This script will make the necessary changes to the mesa package.
