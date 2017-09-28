@@ -1,0 +1,3 @@
+Astronaut in a Can is a model built to study the sustainability of an isolated system.
+Most parameters are set automatically, but to change any parameter simply click the
+settings button, adjust the values, and click reset.
