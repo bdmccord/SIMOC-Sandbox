@@ -41,7 +41,7 @@ chart_gas = ChartModule([{"Label": "Carbon", "Color": "#AA0000"}],
                              data_collector_name="datacollector2")
 
 server = ModularServer(SingleRoomModel, [canvas_element, chart_element, chart_gas],
-                       "Single Room Model",
+                       "Astronaut in a Can",
                        model_params=dict(
                            scrubber=UserSettableParameter('checkbox', 'CO2 Scrubber Enabled', False),
                            solar=UserSettableParameter('slider','Solar Energy Generated per Hour (W)',0,0,400), # Values based on 10 m^2 array
@@ -50,6 +50,6 @@ server = ModularServer(SingleRoomModel, [canvas_element, chart_element, chart_ga
                            h_agents=UserSettableParameter('slider', 'Initial Human Population', 1, 0, 10),
                            p_agents=UserSettableParameter('slider', 'Initial Plant Population', 5, 0, 100),
                            regrowth=UserSettableParameter('checkbox', 'Plant Regrowth Enabled', False),
-                           plants_spread=UserSettableParameter('slider', 'Plants Spread Rate', 20, 1, 50, description="The number of steps it takes for a plant to spread.")
+                           plants_spread=UserSettableParameter('slider', 'Plants Spread Rate (Steps)', 20, 1, 50, description="The number of steps it takes for a plant to spread.")
                            )
                        )

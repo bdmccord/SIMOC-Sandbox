@@ -20,10 +20,7 @@ class Human(Walker):
             self.model.carbon += 0.0416*0.05776*2
         '''
         self.model.temp += (((310-self.model.temp)*0.04372)/(1.29*1000*0.001005))
-
         cell = self.current_cell(self.pos,Plant)
-        print (self.model.temp)
-
 
         if self.model.oxygen < 15.17 or self.model.carbon > 0.53 or self.energy < 0:
 
@@ -67,8 +64,6 @@ class Human(Walker):
             self.energy -= 7.43*(1/24)
             self.model.oxygen -= 0.0416*0.06265*0.63
             self.model.carbon += 0.0416*0.05776*0.63
-
-        print (self.energy)
 
 
 class Plant(Agent):

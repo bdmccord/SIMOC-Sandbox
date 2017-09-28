@@ -1,7 +1,7 @@
 import os, sys,shutil
 
 def main():
-    os.system('pip install -r requirements.txt')
+    os.system('pip3 install -r requirements.txt')
     import mesa
     path = os.path.join(mesa.__file__[:-12],"visualization","templates")
     paths = [os.path.join(path,'css'),

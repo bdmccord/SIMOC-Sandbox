@@ -11,15 +11,10 @@ import json
 
 class SingleRoomModel(Model):
 
+    with open('ABM/resources/description.txt', 'r') as f:
+        txt = f.read()
 
-    '''
-    CDRA (carbon dioxide removal assembly) uses ~2.1 kW per kg of CO2 removed
-
-    ~ 6 kg of co2 removed
-    '''
-    description = ("A model for simulating the exchange of carbon dioxide and oxygen between plants and humans."
-                  " Most parameters are set automatically, but to change any parameter "
-                  "simply adjust the sliders and click reset.")
+    description = (txt)
 
     def __init__(self, scrubber,regrowth,excess_co2,excess_amount,solar,h_agents=1, p_agents=5, plants_spread=20,oxygen=21.21, carbon=0.13):
         self.schedule = RandomActivationBySpecies(self)
@@ -35,6 +30,7 @@ class SingleRoomModel(Model):
         self.temp = 295
         self.solar = solar
         self.scrubber = scrubber
+        self.stepNum = 1
 
         with open('../data/data.json', 'r') as f:
             data = json.load(f)
@@ -77,11 +73,18 @@ class SingleRoomModel(Model):
         self.datacollector.collect(self)
         self.datacollector2.collect(self)
 
-        #print ("Oxygen: {}".format(self.oxygen))
-        #print ("Carbon: {}".format(self.carbon))
-
         self.h_agents = self.schedule.get_agent_count(Human)
         self.p_agents = self.schedule.get_agent_count(Plant)
+
+        with open('env_log.txt','a+') as f:
+            f.write('Step {}:'.format(self.stepNum))
+            f.write('\nCarbon Dioxide: {:f}'.format(self.carbon))
+            f.write('\nOxygen: {:f}'.format(self.oxygen))
+            f.write('\nTemperature: {:f}'.format(self.temp))
+            f.write('\nHuman Agents: {}'.format(self.h_agents))
+            f.write('\nPlant Agents: {}\n\n'.format(self.p_agents))
+
+        self.stepNum += 1
 
     def run_model(self, step_count=200):
         co2 = []
