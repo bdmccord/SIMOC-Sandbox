@@ -1,7 +1,13 @@
-function openNav() {
-    document.getElementById("mySidenav").style.width = "300px";
-}
+$(document).ready(function () {
+  $('.menu').on('click', function() {
+      $('#mySidenav').toggleClass('opened');
+  });
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
+  $('.closebtn').on('click', function() {
+      $('#mySidenav').toggleClass('opened');
+  });
+
+  setTimeout(function(){
+    $('#sidebar').append("<div style='margin-bottom: 50px;'></div>");
+  }, 500);
+});

@@ -8,6 +8,7 @@ from ABM.agents import Human, Plant
 import numpy as np
 import random
 import json
+import datetime
 
 class SingleRoomModel(Model):
 
@@ -31,6 +32,7 @@ class SingleRoomModel(Model):
         self.solar = solar
         self.scrubber = scrubber
         self.stepNum = 1
+        self.fileName = self.logfile()
 
         with open('../data/data.json', 'r') as f:
             data = json.load(f)
@@ -41,7 +43,7 @@ class SingleRoomModel(Model):
         edible = data['Plants'][plant_type]['Edible']
         inedible = data['Plants'][plant_type]['Inedible']
 
-        for i in range(self.p_agents):
+        for _ in range(self.p_agents):
             coords = (random.randrange(0, 20), random.randrange(0, 20))
             plant = Plant(coords,self.oxy,self.co2,self,self.spread)
             self.grid.place_agent(plant, coords)
@@ -49,7 +51,7 @@ class SingleRoomModel(Model):
 
         for i in range(self.h_agents):
             coords = (random.randrange(0, 20), random.randrange(0, 20))
-            human = Human(coords,edible,inedible,self)
+            human = Human(coords,i+1,edible,inedible,self)
             self.grid.place_agent(human, coords)
             self.schedule.add(human)
 
@@ -62,7 +64,19 @@ class SingleRoomModel(Model):
         )
         self.running = True
 
+    def logfile(self):
+        time = datetime.datetime.now().strftime("%m-%d-%Y_%H:%M:%S")
+        return ("logs/" + time + ".txt")
+
     def step(self):
+        with open(self.fileName,'a+') as f:
+            f.write('Step {}:'.format(self.stepNum))
+            f.write('\nCarbon Dioxide: {:f}'.format(self.carbon))
+            f.write('\nOxygen: {:f}'.format(self.oxygen))
+            f.write('\nTemperature: {:f}'.format(self.temp))
+            f.write('\nHuman Agents: {}'.format(self.h_agents))
+            f.write('\nPlant Agents: {}'.format(self.p_agents))
+
         self.schedule.step()
         if self.excess_co2:
             self.carbon += 0.001*(self.excess_amount)
@@ -75,14 +89,6 @@ class SingleRoomModel(Model):
 
         self.h_agents = self.schedule.get_agent_count(Human)
         self.p_agents = self.schedule.get_agent_count(Plant)
-
-        with open('env_log.txt','a+') as f:
-            f.write('Step {}:'.format(self.stepNum))
-            f.write('\nCarbon Dioxide: {:f}'.format(self.carbon))
-            f.write('\nOxygen: {:f}'.format(self.oxygen))
-            f.write('\nTemperature: {:f}'.format(self.temp))
-            f.write('\nHuman Agents: {}'.format(self.h_agents))
-            f.write('\nPlant Agents: {}\n\n'.format(self.p_agents))
 
         self.stepNum += 1
 

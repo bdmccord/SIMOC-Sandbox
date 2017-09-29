@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .cn {
   margin-left: 15px;
   margin-right: 15px;
@@ -16,6 +22,10 @@
     padding-top: 60px;
     margin: auto;
     border-left: solid 1px #101010;
+}
+
+.sidenav.opened {
+  width: 300px;
 }
 
 .menu {
@@ -42,6 +52,7 @@
 
 .sidenav .input-group {
     left: 50px;
+    padding-bottom: 20px;
 }
 
 
@@ -52,4 +63,16 @@
     left: 25px;
     font-size: 36px;
     margin-right: 50px;
+}
+
+#chartElements {
+  margin: auto;
+}
+
+#chartElements h3 {
+  text-align: center;
+}
+
+#chartElements canvas {
+  margin-bottom: 20px;
 }

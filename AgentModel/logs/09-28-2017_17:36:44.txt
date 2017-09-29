@@ -1,0 +1,748 @@
+Step 1:
+Carbon Dioxide: 0.130000
+Oxygen: 21.210000
+Temperature: 295.000000
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 2:
+Carbon Dioxide: 0.125536
+Oxygen: 21.214056
+Temperature: 295.994627
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 3:
+Carbon Dioxide: 0.121072
+Oxygen: 21.218113
+Temperature: 296.923302
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 4:
+Carbon Dioxide: 0.116608
+Oxygen: 21.222169
+Temperature: 297.790398
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 5:
+Carbon Dioxide: 0.112144
+Oxygen: 21.226225
+Temperature: 298.599999
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 6:
+Carbon Dioxide: 0.107680
+Oxygen: 21.230282
+Temperature: 299.355915
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 7:
+Carbon Dioxide: 0.103216
+Oxygen: 21.234338
+Temperature: 300.061709
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 8:
+Carbon Dioxide: 0.098752
+Oxygen: 21.238394
+Temperature: 300.720702
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 9:
+Carbon Dioxide: 0.094288
+Oxygen: 21.242451
+Temperature: 301.335998
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 10:
+Carbon Dioxide: 0.089824
+Oxygen: 21.246507
+Temperature: 301.910495
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 11:
+Carbon Dioxide: 0.085360
+Oxygen: 21.250563
+Temperature: 302.446898
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 12:
+Carbon Dioxide: 0.080896
+Oxygen: 21.254620
+Temperature: 302.947732
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 13:
+Carbon Dioxide: 0.076432
+Oxygen: 21.258676
+Temperature: 303.415358
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 14:
+Carbon Dioxide: 0.071968
+Oxygen: 21.262732
+Temperature: 303.851975
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 15:
+Carbon Dioxide: 0.067504
+Oxygen: 21.266789
+Temperature: 304.259641
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 16:
+Carbon Dioxide: 0.063040
+Oxygen: 21.270845
+Temperature: 304.640276
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 17:
+Carbon Dioxide: 0.058576
+Oxygen: 21.274901
+Temperature: 304.995671
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 18:
+Carbon Dioxide: 0.054112
+Oxygen: 21.278958
+Temperature: 305.327501
+Human Agents: 2
+Plant Agents: 52
+Human 2
+
+
+Human 1
+
+Step 19:
+Carbon Dioxide: 0.049648
+Oxygen: 21.283014
+Temperature: 305.637327
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 20:
+Carbon Dioxide: 0.045184
+Oxygen: 21.287070
+Temperature: 305.926609
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 21:
+Carbon Dioxide: 0.049465
+Oxygen: 21.299899
+Temperature: 306.196710
+Human Agents: 2
+Plant Agents: 51
+Human 2
+
+
+Human 1
+
+Step 22:
+Carbon Dioxide: 0.045145
+Oxygen: 21.303814
+Temperature: 306.448900
+Human Agents: 2
+Plant Agents: 51
+Human 2
+
+
+Human 1
+
+Step 23:
+Carbon Dioxide: 0.049571
+Oxygen: 21.316502
+Temperature: 306.684368
+Human Agents: 2
+Plant Agents: 50
+Human 1
+
+
+Human 2
+
+Step 24:
+Carbon Dioxide: 0.045395
+Oxygen: 21.320276
+Temperature: 306.904223
+Human Agents: 2
+Plant Agents: 50
+Human 1
+
+
+Human 2
+
+Step 25:
+Carbon Dioxide: 0.041219
+Oxygen: 21.324050
+Temperature: 307.109499
+Human Agents: 2
+Plant Agents: 50
+Human 1
+
+
+Human 2
+
+Step 26:
+Carbon Dioxide: 0.037043
+Oxygen: 21.327824
+Temperature: 307.301164
+Human Agents: 2
+Plant Agents: 50
+Human 1
+
+
+Human 2
+
+Step 27:
+Carbon Dioxide: 0.032867
+Oxygen: 21.331598
+Temperature: 307.480119
+Human Agents: 2
+Plant Agents: 50
+Human 1
+
+
+Human 2
+
+Step 28:
+Carbon Dioxide: 0.028691
+Oxygen: 21.335372
+Temperature: 307.647209
+Human Agents: 2
+Plant Agents: 50
+Human 2
+
+
+Human 1
+
+Step 29:
+Carbon Dioxide: 0.024515
+Oxygen: 21.339146
+Temperature: 307.803219
+Human Agents: 2
+Plant Agents: 50
+Human 2
+
+
+Human 1
+
+Step 30:
+Carbon Dioxide: 0.020340
+Oxygen: 21.342920
+Temperature: 307.948884
+Human Agents: 2
+Plant Agents: 50
+Human 2
+
+
+Human 1
+
+Step 31:
+Carbon Dioxide: 0.017028
+Oxygen: 21.345847
+Temperature: 308.084891
+Human Agents: 2
+Plant Agents: 43
+Human 2
+
+
+Human 1
+
+Step 32:
+Carbon Dioxide: 0.015878
+Oxygen: 21.346657
+Temperature: 308.211879
+Human Agents: 2
+Plant Agents: 28
+Human 1
+
+
+Human 2
+
+Step 33:
+Carbon Dioxide: 0.016456
+Oxygen: 21.345773
+Temperature: 308.330446
+Human Agents: 2
+Plant Agents: 17
+Human 1
+
+
+Human 2
+
+Step 34:
+Carbon Dioxide: 0.017467
+Oxygen: 21.344465
+Temperature: 308.441152
+Human Agents: 2
+Plant Agents: 13
+Human 1
+
+
+Human 2
+
+Step 35:
+Carbon Dioxide: 0.021913
+Oxygen: 21.339185
+Temperature: 308.544517
+Human Agents: 2
+Plant Agents: 14
+Human 1
+
+
+Human 2
+
+Step 36:
+Carbon Dioxide: 0.026216
+Oxygen: 21.334046
+Temperature: 308.641028
+Human Agents: 2
+Plant Agents: 15
+Human 2
+
+
+Human 1
+
+Step 37:
+Carbon Dioxide: 0.030374
+Oxygen: 21.329048
+Temperature: 308.731139
+Human Agents: 2
+Plant Agents: 16
+Human 1
+
+
+Human 2
+
+Step 38:
+Carbon Dioxide: 0.034388
+Oxygen: 21.324192
+Temperature: 308.815275
+Human Agents: 2
+Plant Agents: 17
+Human 2
+
+
+Human 1
+
+Step 39:
+Carbon Dioxide: 0.038259
+Oxygen: 21.319477
+Temperature: 308.893832
+Human Agents: 2
+Plant Agents: 18
+Human 1
+
+
+Human 2
+
+Step 40:
+Carbon Dioxide: 0.041985
+Oxygen: 21.314902
+Temperature: 308.967181
+Human Agents: 2
+Plant Agents: 19
+Human 2
+
+
+Human 1
+
+Step 41:
+Carbon Dioxide: 0.045567
+Oxygen: 21.310469
+Temperature: 309.035665
+Human Agents: 2
+Plant Agents: 20
+Human 2
+
+
+Human 1
+
+Step 42:
+Carbon Dioxide: 0.049005
+Oxygen: 21.306177
+Temperature: 309.099609
+Human Agents: 2
+Plant Agents: 21
+Human 1
+
+
+Human 2
+
+Step 43:
+Carbon Dioxide: 0.052299
+Oxygen: 21.302027
+Temperature: 309.159313
+Human Agents: 2
+Plant Agents: 22
+Human 2
+
+
+Human 1
+
+Step 44:
+Carbon Dioxide: 0.055449
+Oxygen: 21.298017
+Temperature: 309.215057
+Human Agents: 2
+Plant Agents: 23
+Human 1
+
+
+Human 2
+
+Step 45:
+Carbon Dioxide: 0.058455
+Oxygen: 21.294149
+Temperature: 309.267106
+Human Agents: 2
+Plant Agents: 24
+Human 2
+
+
+Human 1
+
+Step 46:
+Carbon Dioxide: 0.061316
+Oxygen: 21.290421
+Temperature: 309.315703
+Human Agents: 2
+Plant Agents: 25
+Human 1
+
+
+Human 2
+
+Step 47:
+Carbon Dioxide: 0.067326
+Oxygen: 21.283004
+Temperature: 309.361077
+Human Agents: 2
+Plant Agents: 27
+Human 2
+
+
+Human 1
+
+Step 48:
+Carbon Dioxide: 0.073047
+Oxygen: 21.275869
+Temperature: 309.403443
+Human Agents: 2
+Plant Agents: 29
+Human 2
+
+
+Human 1
+
+Step 49:
+Carbon Dioxide: 0.078481
+Oxygen: 21.269017
+Temperature: 309.443000
+Human Agents: 2
+Plant Agents: 31
+Human 1
+
+
+Human 2
+
+Step 50:
+Carbon Dioxide: 0.083626
+Oxygen: 21.262446
+Temperature: 309.479934
+Human Agents: 2
+Plant Agents: 33
+Human 1
+
+
+Human 2
+
+Step 51:
+Carbon Dioxide: 0.088483
+Oxygen: 21.256158
+Temperature: 309.514419
+Human Agents: 2
+Plant Agents: 35
+Human 1
+
+
+Human 2
+
+Step 52:
+Carbon Dioxide: 0.093052
+Oxygen: 21.250153
+Temperature: 309.546617
+Human Agents: 2
+Plant Agents: 37
+Human 2
+
+
+Human 1
+
+Step 53:
+Carbon Dioxide: 0.097332
+Oxygen: 21.244429
+Temperature: 309.576680
+Human Agents: 2
+Plant Agents: 39
+Human 1
+
+
+Human 2
+
+Step 54:
+Carbon Dioxide: 0.101325
+Oxygen: 21.238988
+Temperature: 309.604750
+Human Agents: 2
+Plant Agents: 41
+Human 1
+
+
+Human 2
+
+Step 55:
+Carbon Dioxide: 0.101738
+Oxygen: 21.237661
+Temperature: 309.630958
+Human Agents: 2
+Plant Agents: 42
+Human 2
+
+
+Human 1
+
+Step 56:
+Carbon Dioxide: 0.102006
+Oxygen: 21.236474
+Temperature: 309.655429
+Human Agents: 2
+Plant Agents: 43
+Human 1
+
+
+Human 2
+
+Step 57:
+Carbon Dioxide: 0.102131
+Oxygen: 21.235429
+Temperature: 309.678277
+Human Agents: 2
+Plant Agents: 44
+Human 1
+
+
+Human 2
+
+Step 58:
+Carbon Dioxide: 0.102111
+Oxygen: 21.234525
+Temperature: 309.699610
+Human Agents: 2
+Plant Agents: 45
+Human 1
+
+
+Human 2
+
+Step 59:
+Carbon Dioxide: 0.101947
+Oxygen: 21.233762
+Temperature: 309.719528
+Human Agents: 2
+Plant Agents: 46
+Human 1
+
+
+Human 2
+
+Step 60:
+Carbon Dioxide: 0.101640
+Oxygen: 21.233140
+Temperature: 309.738126
+Human Agents: 2
+Plant Agents: 47
+Human 2
+
+
+Human 1
+
+Step 61:
+Carbon Dioxide: 0.101188
+Oxygen: 21.232660
+Temperature: 309.755490
+Human Agents: 2
+Plant Agents: 48
+Human 1
+
+
+Human 2
+
+Step 62:
+Carbon Dioxide: 0.100592
+Oxygen: 21.232320
+Temperature: 309.771703
+Human Agents: 2
+Plant Agents: 49
+Human 1
+
+
+Human 2
+
+Step 63:
+Carbon Dioxide: 0.099852
+Oxygen: 21.232122
+Temperature: 309.786841
+Human Agents: 2
+Plant Agents: 50
+Human 2
+
+
+Human 1
+
+Step 64:
+Carbon Dioxide: 0.098968
+Oxygen: 21.232065
+Temperature: 309.800976
+Human Agents: 2
+Plant Agents: 51
+Human 2
+
+
+Human 1
+
+Step 65:
+Carbon Dioxide: 0.097940
+Oxygen: 21.232149
+Temperature: 309.814173
+Human Agents: 2
+Plant Agents: 52
+Human 1
+
+
+Human 2
+
+Step 66:
+Carbon Dioxide: 0.096768
+Oxygen: 21.232374
+Temperature: 309.826495
+Human Agents: 2
+Plant Agents: 53
+Human 2
+
+
+Human 1
+
+Step 67:
+Carbon Dioxide: 0.095452
+Oxygen: 21.232740
+Temperature: 309.837999
+Human Agents: 2
+Plant Agents: 54
+Human 1
+
+
+Human 2
+
+Step 68:
+Carbon Dioxide: 0.090699
+Oxygen: 21.237079
+Temperature: 309.848741
+Human Agents: 2
+Plant Agents: 54
+Human 2
+
+
+Human 1
+

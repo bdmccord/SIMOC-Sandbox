@@ -3,12 +3,13 @@ from ABM.walk import Walker
 import random
 
 class Human(Walker):
-    def __init__(self, pos, ed, ined,model):
+    def __init__(self, pos,idNum, ed, ined,model):
         super().__init__(pos, model)
         self.pos = pos
         self.energy = 100
         self.ed = ed
         self.ined = ined
+        self.idNum = idNum
 
     def step(self):
         '''
@@ -64,6 +65,9 @@ class Human(Walker):
             self.energy -= 7.43*(1/24)
             self.model.oxygen -= 0.0416*0.06265*0.63
             self.model.carbon += 0.0416*0.05776*0.63
+
+        with open(self.model.fileName, 'a+') as f:
+            f.write("\nHuman {}\n\n".format(self.idNum))
 
 
 class Plant(Agent):

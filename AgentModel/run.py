@@ -1,3 +1,3 @@
 from ABM.server import server
 
-server.launch()
+server.launch(processes=2)

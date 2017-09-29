@@ -16,7 +16,7 @@
 
     <!-- Navbar -->
 		<div id="mySidenav" class="sidenav">
-				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+				<a href="javascript:void(0)" class="closebtn">&times;</a>
 				<div id="sidebar"></div>
 		</div>
     <nav class="navbar navbar-inverse navbar-static-top">
@@ -43,22 +43,24 @@
                     <li id="step"><a href="#">Step</a></li>
                     <li id="reset"><a href="#">Reset</a></li>
 										<!--<li id="menu"><a href="#">Menu</a></li>-->
-										<li><a href="#" class="menu" onclick="openNav()">Settings</a></li>
+										<li><a href="#" class="menu">Settings</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
 
 
-    <div class="container">
+    <div class="container" style="margin: auto;">
 			<div id="elements-topbar">
-					<div class="input-group input-group-lg" style="margin: auto;">
+					<div class="input-group input-group-lg" style="margin: auto; margin-bottom: 20px;">
 							<label class="label label-primary" for="fps" style="margin-right: 15px">Frames Per Second</label>
-							<input id="fps" data-slider-id='fps' type="text" />
+							<input id="fps" data-slider-id='fps' type="text"/>
 					</div>
 			</div>
       <div id="elements" class="col-md-6"></div>
-			<div id="chartElements" class="col-md-6"></div>
+			<div id="chartElements" class="col-md-6">
+				<h3>Graphs</h3>
+			</div>
     </div>
 
     <!-- About modal -->
