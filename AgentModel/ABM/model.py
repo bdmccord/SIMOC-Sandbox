@@ -70,7 +70,7 @@ class SingleRoomModel(Model):
 
     def step(self):
         with open(self.fileName,'a+') as f:
-            f.write('Step {}:'.format(self.stepNum))
+            f.write('\n\nStep {}:'.format(self.stepNum))
             f.write('\nCarbon Dioxide: {:f}'.format(self.carbon))
             f.write('\nOxygen: {:f}'.format(self.oxygen))
             f.write('\nTemperature: {:f}'.format(self.temp))

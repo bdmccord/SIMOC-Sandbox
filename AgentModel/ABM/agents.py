@@ -20,17 +20,18 @@ class Human(Walker):
             self.model.oxygen -= 0.0416*0.06265*2.1
             self.model.carbon += 0.0416*0.05776*2
         '''
+        action = ''
+
         self.model.temp += (((310-self.model.temp)*0.04372)/(1.29*1000*0.001005))
         cell = self.current_cell(self.pos,Plant)
 
         if self.model.oxygen < 15.17 or self.model.carbon > 0.53 or self.energy < 0:
-
+            action += 'Died\n'
             self.model.grid._remove_agent(self.pos, self)
             self.model.schedule.remove(self)
 
-        if self.model.schedule.get_agent_count(Plant)>0 and (self.energy < 75) and not(isinstance(cell,Plant)):
+        elif self.model.schedule.get_agent_count(Plant)>0 and (self.energy < 75) and not(isinstance(cell,Plant)):
             self.move_toward_plant(Plant)
-
             self.energy -= 11.82*(1/24)
             self.model.oxygen -= 0.0416*0.06265*2.1
             self.model.carbon += 0.0416*0.05776*2
@@ -67,7 +68,7 @@ class Human(Walker):
             self.model.carbon += 0.0416*0.05776*0.63
 
         with open(self.model.fileName, 'a+') as f:
-            f.write("\nHuman {}\n\n".format(self.idNum))
+            f.write("\nHuman {}\n{}".format(self.idNum,action))
 
 
 class Plant(Agent):
