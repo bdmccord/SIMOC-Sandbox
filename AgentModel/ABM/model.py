@@ -9,10 +9,11 @@ import numpy as np
 import random
 import json
 import datetime
+import os
 
 class SingleRoomModel(Model):
 
-    with open('ABM/resources/description.txt', 'r') as f:
+    with open(os.path.join('ABM','resources','description.txt'), 'r') as f:
         txt = f.read()
 
     description = (txt)
@@ -34,7 +35,7 @@ class SingleRoomModel(Model):
         self.stepNum = 1
         self.fileName = self.logfile()
 
-        with open('../data/data.json', 'r') as f:
+        with open(os.path.join('..', 'data', 'data.json'), 'r') as f:
             data = json.load(f)
 
         plant_type = 'White Potato'
@@ -65,8 +66,8 @@ class SingleRoomModel(Model):
         self.running = True
 
     def logfile(self):
-        time = datetime.datetime.now().strftime("%m-%d-%Y_%H:%M:%S")
-        return ("logs/" + time + ".txt")
+        time = datetime.datetime.now().strftime("%m-%d-%Y_%H%M%S")
+        return (os.path.join('logs', '{0}.txt'.format(time)))
 
     def step(self):
         with open(self.fileName,'a+') as f:
